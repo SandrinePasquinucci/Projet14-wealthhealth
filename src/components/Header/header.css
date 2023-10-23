@@ -1,0 +1,26 @@
+/* Logo - Title */
+.logo-title {
+  align-items: center;
+  display: inline-flex;
+  background-color: #47560b;
+  width: 100%;
+}
+
+/* Logo */
+.logo {
+  width: 150px;
+  background-color: var(--light-color);
+}
+
+/* Title */
+.title {
+  display: flex;
+  color: var(--light-color);
+  margin-left: 20px;
+  font-size: 60px;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  /* font-size: 2rem; */
+  font-weight: 600;
+  line-height: 1.5;
+}
