@@ -4,8 +4,6 @@ import React, { useState } from "react";
 import Datas from "../..//datas/Datas.json";
 import Dropdown from "../../components/Dropdown/Dropdown";
 
-//Grafikart react-hook-form https://www.youtube.com/watch?v=Ipgf8PLRmY8 Attention valable pour V6
-//Pour V7 synthaxe differente https://louisetiennegirard.fr/blog/creer-vos-formulaires-avec-react-hook-form
 //hook-form
 import { useForm, Controller } from "react-hook-form";
 //DatePicker
@@ -49,13 +47,10 @@ export default function CreateEmployee() {
         <Link to="/view" className="link">
           View Current Employees
         </Link>
-        <fieldset>
-          <legend>Create Employee</legend>
-          <form
-            action="#"
-            id="create-employee"
-            onSubmit={handleSubmit(onSubmit)}
-          >
+        <form action="#" id="create-employee" onSubmit={handleSubmit(onSubmit)}>
+          <fieldset>
+            <legend>Create Employee</legend>
+
             <div className="label-input">
               <label className="first-name">First Name</label>
               <input
@@ -162,12 +157,11 @@ export default function CreateEmployee() {
               <label className="department">Department</label>
               <Dropdown name="department" optionsList={Datas.Departments} />
             </div>
-          </form>
-        </fieldset>
-
-        <button disabled={isSubmitting} className="button">
-          Save
-        </button>
+            <button disabled={isSubmitting} className="button">
+              Save
+            </button>
+          </fieldset>
+        </form>
       </div>
       {isSubmitSuccessful && (
         <div id="confirmation" className="modal">
