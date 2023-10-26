@@ -1,44 +1,28 @@
 import "./create.css";
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
-import Datas from "../..//datas/Datas.json";
+
+import Datas from "../../datas/Datas.json";
 import Dropdown from "../../components/Dropdown/Dropdown";
 
-//hook-form
-import { useForm, Controller } from "react-hook-form";
-//DatePicker
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-//yup
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-
-const schema = yup.object().shape({
-  firstName: yup.string().required(),
-  lastName: yup.string().required(),
-  dateOfBirth: yup.string().required(),
-  startDate: yup.string().required(),
-  street: yup.string().required(),
-  city: yup.string().required(),
-  state: yup.string().required(),
-  zipCode: yup.string().required(),
-  department: yup.string().required(),
-});
-
 export default function CreateEmployee() {
-  const {
-    register,
-    handleSubmit,
-    formState,
-    formState: { errors },
-    control,
-  } = useForm({ mode: "onTouched", resolver: yupResolver(schema) });
-  //mode ontouched pour valider le champs uniquement lorsque je sors du champs
-  const { isSubmitting, isSubmitSuccessful } = formState;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const elements = form.elements;
 
-  const onSubmit = async (newEmployee) => {
-    console.log(newEmployee);
-    // localStorage.setItem("newEmployee", JSON.stringify(newEmployee));
+    const employee = {
+      firstName: elements.firstName.value,
+      lastName: elements.lastName.value,
+      dateBirth: elements.dateBirth.value,
+      startDate: elements.startDate.value,
+      street: elements.street.value,
+      city: elements.city.value,
+      state: elements.state.value,
+      zipCode: elements.city.value,
+      department: elements.department.value,
+    };
+    console.log(employee);
+    form.reset();
   };
 
   return (
@@ -47,7 +31,7 @@ export default function CreateEmployee() {
         <Link to="/view" className="link">
           View Current Employees
         </Link>
-        <form action="#" id="create-employee" onSubmit={handleSubmit(onSubmit)}>
+        <form action="#" id="create-employee" onSubmit={handleSubmit}>
           <fieldset>
             <legend>Create Employee</legend>
 
@@ -55,58 +39,41 @@ export default function CreateEmployee() {
               <label className="first-name">First Name</label>
               <input
                 type="text"
-                id="first-name"
+                id="last-name"
                 name="firstName"
-                {...register("firstName")}
+                required="required"
               />
             </div>
-            {errors.firstName?.type === "required" && (
-              <p role="alert">First name is required</p>
-            )}
+
             <div className="label-input">
               <label className="last-name">Last Name</label>
               <input
                 type="text"
                 id="last-name"
                 name="lastName"
-                {...register("lastName")}
+                required="required"
               />
             </div>
-            {errors.lastName?.type === "required" && (
-              <p role="alert">Last name is required</p>
-            )}
 
             <div className="label-input">
               <label className="date-of-birth">Date of Birth</label>
-              <Controller
-                control={control}
-                name="dateOfBirth"
-                render={({ onChange, onBlur, value, name, ref }) => (
-                  <DatePicker
-                    selected={value}
-                    onBlur={onBlur}
-                    onChange={onChange}
-                  />
-                )}
-              />
+              <input
+                id="date-of-birth"
+                type="date"
+                name="dateBirth"
+                required="required"
+              ></input>
             </div>
-
-            {errors.dateOfBirth?.type === "required" && (
-              <p role="alert">Date of birth is required</p>
-            )}
 
             <div className="label-input">
               <label className="start-date">Start Date</label>
               <input
                 id="start-date"
-                type="text"
+                type="date"
                 name="startDate"
-                {...register("startDate")}
+                required="required"
               />
             </div>
-            {errors.startDate?.type === "required" && (
-              <p role="alert">Start date is required</p>
-            )}
 
             <fieldset className="address">
               <legend>Address</legend>
@@ -116,25 +83,14 @@ export default function CreateEmployee() {
                   id="street"
                   type="text"
                   name="street"
-                  {...register("street")}
+                  required="required"
                 />
               </div>
-              {errors.street?.type === "required" && (
-                <p role="alert">Street is required</p>
-              )}
 
               <div className="label-input">
                 <label className="city">City</label>
-                <input
-                  id="city"
-                  type="text"
-                  name="city"
-                  {...register("city")}
-                />
+                <input id="city" type="text" name="city" required="required" />
               </div>
-              {errors.city?.type === "required" && (
-                <p role="alert">City is required</p>
-              )}
 
               <div className="label-input">
                 <label className="state">State</label>
@@ -146,28 +102,18 @@ export default function CreateEmployee() {
                   id="zip-code"
                   type="number"
                   name="zipCode"
-                  {...register("zipCode")}
+                  required="required"
                 />
               </div>
-              {errors.zipCode?.type === "required" && (
-                <p role="alert">Zip code is required</p>
-              )}
             </fieldset>
             <div className="label-input">
               <label className="department">Department</label>
               <Dropdown name="department" optionsList={Datas.Departments} />
             </div>
-            <button disabled={isSubmitting} className="button">
-              Save
-            </button>
+            <button className="button">Save</button>
           </fieldset>
         </form>
       </div>
-      {isSubmitSuccessful && (
-        <div id="confirmation" className="modal">
-          Employee Created!
-        </div>
-      )}
     </section>
   );
 }
