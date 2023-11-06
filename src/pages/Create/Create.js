@@ -2,15 +2,21 @@ import "./create.css";
 import { Link } from "react-router-dom";
 
 import Datas from "../../datas/Datas.json";
+
 import Dropdown from "../../components/Dropdown/Dropdown";
 
 export default function CreateEmployee() {
   const handleSubmit = (e) => {
     e.preventDefault();
+    const employees = JSON.parse(localStorage.getItem("employee"));
+
+    const compteur = Object.keys(employees).length;
+
     const form = e.target;
     const elements = form.elements;
 
     const employee = {
+      id: compteur,
       firstName: elements.firstName.value,
       lastName: elements.lastName.value,
       dateBirth: elements.dateBirth.value,
@@ -18,10 +24,14 @@ export default function CreateEmployee() {
       street: elements.street.value,
       city: elements.city.value,
       state: elements.state.value,
-      zipCode: elements.city.value,
+      zipCode: elements.zipCode.value,
       department: elements.department.value,
     };
-    console.log(employee);
+
+    employees.push(employee);
+
+    localStorage.setItem("employees", JSON.stringify(employees));
+
     form.reset();
   };
 
@@ -103,6 +113,7 @@ export default function CreateEmployee() {
                   type="number"
                   name="zipCode"
                   required="required"
+                  min={0}
                 />
               </div>
             </fieldset>

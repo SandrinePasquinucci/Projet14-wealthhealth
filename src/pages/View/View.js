@@ -5,9 +5,9 @@ import { FilterMatchMode } from "primereact/api";
 import { Column } from "primereact/column";
 import { InputText } from "primereact/inputtext";
 import { useState } from "react";
-import Datas from "../../datas/Datas.json";
+
 function View() {
-  // let [search, setSearch] = useState("");
+  const employees = JSON.parse(localStorage.getItem("employee")) || [];
   const [filters, setFilters] = useState({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
   });
@@ -36,27 +36,18 @@ function View() {
     );
   };
   const header = renderHeader();
+
   return (
     <section className="createEmployee">
-      <div id="employee-div" class="container">
-        <Link to="/create" className="link">
+      <div id="employee-div" className="container">
+        <Link to="/" className="link">
           Create Employee
         </Link>
         <fieldset>
           <legend>Current Employee</legend>
 
-          {/* <div className="data-search">
-            <label htmlFor="search">Search</label>
-            <input
-              id="search"
-              name="search"
-              type="search"
-              onChange={(e) => setSearch(e.target.value)}
-            />
-          </div> */}
-          <table id="employee-table" class="display"></table>
           <DataTable
-            value={Datas.Employees}
+            value={employees}
             paginator
             rows={10}
             rowsPerPageOptions={[10, 25, 50, 100]}
@@ -65,6 +56,8 @@ function View() {
             filterDisplay="row"
             dataKey="id"
             header={header}
+            paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink  RowsPerPageDropdown"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
           >
             <Column field="firstName" header="First Name" sortable></Column>
             <Column field="lastName" header="Last Name" sortable></Column>
