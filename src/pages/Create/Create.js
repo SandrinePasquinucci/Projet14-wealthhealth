@@ -1,13 +1,27 @@
 import "./create.css";
 import { Link } from "react-router-dom";
-
 import Datas from "../../datas/Datas.json";
-
 import Dropdown from "../../components/Dropdown/Dropdown";
+import Modal from "modal-sp";
+import "modal-sp/dist/components/modal.css";
+import React, { useState } from "react";
 
 export default function CreateEmployee() {
+  const modalParameter = {
+    backgroundColor: "#47560b",
+    borderRadius: 10,
+    boxShadow: "0 0 5px #1B1919",
+    color: "#1B1919",
+    fontSize: 18,
+    height: "fit-content",
+    padding: "250px 150px",
+    width: "fit-content",
+  };
+  const [modal, setModal] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const employees = JSON.parse(localStorage.getItem("employee"));
 
     const compteur = Object.keys(employees).length;
@@ -31,7 +45,7 @@ export default function CreateEmployee() {
     employees.push(employee);
 
     localStorage.setItem("employees", JSON.stringify(employees));
-
+    setModal(!modal);
     form.reset();
   };
 
@@ -125,6 +139,13 @@ export default function CreateEmployee() {
           </fieldset>
         </form>
       </div>
+
+      <Modal
+        message="Employee Created !"
+        parameter={modalParameter}
+        modal={modal}
+        setModal={setModal}
+      />
     </section>
   );
 }
