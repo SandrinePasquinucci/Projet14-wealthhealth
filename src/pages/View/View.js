@@ -7,7 +7,7 @@ import { InputText } from "primereact/inputtext";
 import { useState } from "react";
 
 function View() {
-  const employees = JSON.parse(localStorage.getItem("employee")) || [];
+  const employees = JSON.parse(localStorage.getItem("employees")) || [];
   const [filters, setFilters] = useState({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
   });

@@ -5,6 +5,8 @@ import Dropdown from "../../components/Dropdown/Dropdown";
 import Modal from "modal-sp";
 import "modal-sp/dist/components/modal.css";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addEmployee } from "../../reducers/employeeSlice";
 
 export default function CreateEmployee() {
   const modalParameter = {
@@ -18,11 +20,11 @@ export default function CreateEmployee() {
     width: "fit-content",
   };
   const [modal, setModal] = useState(false);
-
+  const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const employees = JSON.parse(localStorage.getItem("employee"));
+    const employees = JSON.parse(localStorage.getItem("employees"));
 
     const compteur = Object.keys(employees).length;
 
@@ -33,7 +35,7 @@ export default function CreateEmployee() {
       id: compteur,
       firstName: elements.firstName.value,
       lastName: elements.lastName.value,
-      dateBirth: elements.dateBirth.value,
+      dateOfBirth: elements.dateOfBirth.value,
       startDate: elements.startDate.value,
       street: elements.street.value,
       city: elements.city.value,
@@ -43,6 +45,8 @@ export default function CreateEmployee() {
     };
 
     employees.push(employee);
+    // Store the input values in the Redux store
+    dispatch(addEmployee(employees));
 
     localStorage.setItem("employees", JSON.stringify(employees));
     setModal(!modal);
@@ -84,7 +88,7 @@ export default function CreateEmployee() {
               <input
                 id="date-of-birth"
                 type="date"
-                name="dateBirth"
+                name="dateOfBirth"
                 required="required"
               ></input>
             </div>
