@@ -8,7 +8,7 @@
     "component",
     "npm"
   ],
-  "author": "Sandrine",
+  "author": "SandrinePasquinucci",
   "private": true,
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.0",
@@ -18,7 +18,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "install": "^0.13.0",
-    "modal-sp": "^0.1.7",
+    "modal-sp": "^0.1.8",
     "npm": "^10.2.3",
     "primereact": "^10.0.5",
     "react": "^18.2.0",

@@ -5,10 +5,14 @@ import Dropdown from "../../components/Dropdown/Dropdown";
 import Modal from "modal-sp";
 import "modal-sp/dist/components/modal.css";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { addEmployee } from "../../reducers/employeeSlice";
 
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 export default function CreateEmployee() {
+  //modal
   const modalParameter = {
     backgroundColor: "#47560b",
     borderRadius: 10,
@@ -20,13 +24,19 @@ export default function CreateEmployee() {
     width: "fit-content",
   };
   const [modal, setModal] = useState(false);
+
+  //redux
   const dispatch = useDispatch();
+
+  const compteur = useSelector((state) => state.employees.employees.length);
+
+  //Datepicker
+  //https://reactdatepicker.com/
+  const [dateOfBirth, setDateOfBirth] = useState("");
+  const [startDate, setStartDate] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const employees = JSON.parse(localStorage.getItem("employees"));
-
-    const compteur = Object.keys(employees).length;
 
     const form = e.target;
     const elements = form.elements;
@@ -44,13 +54,11 @@ export default function CreateEmployee() {
       department: elements.department.value,
     };
 
-    employees.push(employee);
-    // Store the input values in the Redux store
-    dispatch(addEmployee(employees));
-
-    localStorage.setItem("employees", JSON.stringify(employees));
+    dispatch(addEmployee(employee));
     setModal(!modal);
     form.reset();
+    setDateOfBirth("");
+    setStartDate("");
   };
 
   return (
@@ -85,21 +93,27 @@ export default function CreateEmployee() {
 
             <div className="label-input">
               <label className="date-of-birth">Date of Birth</label>
-              <input
+
+              <DatePicker
                 id="date-of-birth"
                 type="date"
                 name="dateOfBirth"
                 required="required"
-              ></input>
+                selected={dateOfBirth}
+                onChange={(date) => setDateOfBirth(date)}
+              />
             </div>
 
             <div className="label-input">
               <label className="start-date">Start Date</label>
-              <input
+
+              <DatePicker
                 id="start-date"
                 type="date"
                 name="startDate"
                 required="required"
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
               />
             </div>
 

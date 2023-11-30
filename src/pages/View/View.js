@@ -5,9 +5,9 @@ import { FilterMatchMode } from "primereact/api";
 import { Column } from "primereact/column";
 import { InputText } from "primereact/inputtext";
 import { useState } from "react";
-
+import { useSelector } from "react-redux";
 function View() {
-  const employees = JSON.parse(localStorage.getItem("employees")) || [];
+  const employees = useSelector((state) => state.employees.employees);
   const [filters, setFilters] = useState({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
   });

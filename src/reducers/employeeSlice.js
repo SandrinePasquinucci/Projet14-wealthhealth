@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  employees: [],
+  employees: JSON.parse(localStorage.getItem("employees")) || [],
 };
 
 const employeeSlice = createSlice({
@@ -10,6 +10,7 @@ const employeeSlice = createSlice({
   reducers: {
     addEmployee: (state, action) => {
       state.employees.push(action.payload);
+      localStorage.setItem("employees", JSON.stringify(state.employees));
     },
   },
 });
