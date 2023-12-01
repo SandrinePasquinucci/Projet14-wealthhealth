@@ -1,4 +1,4 @@
-# Plugin Modal with Create React App and npm
+# HRNet
 
 [![GitHub Last Commit](https://badgen.net/github/last-commit/SandrinePasquinucci/Projet14-modal)](https://github.com/SandrinePasquinucci/Projet14-modal/commits/master)
 
