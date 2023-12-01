@@ -1,7 +1,5 @@
 # Plugin Modal with Create React App and npm
 
-[![GitHub Project](https://badgen.net/github/SandrinePasquinucci/Projet14-wealthhealth)](https://github.com/SandrinePasquinucci/Projet14-wealthhealth)
-
 [![GitHub Last Commit](https://badgen.net/github/last-commit/SandrinePasquinucci/Projet14-modal)](https://github.com/SandrinePasquinucci/Projet14-modal/commits/master)
 
 ## Description
