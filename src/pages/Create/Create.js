@@ -1,7 +1,7 @@
 import "./create.css";
 import { Link } from "react-router-dom";
 import Datas from "../../datas/Datas.json";
-import Dropdown from "../../components/Dropdown/Dropdown";
+// import Dropdown from "../../components/Dropdown/Dropdown";
 import Modal from "modal-sp";
 import "modal-sp/dist/components/modal.css";
 import React, { useState } from "react";
@@ -10,6 +10,8 @@ import { addEmployee } from "../../reducers/employeeSlice";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+
+import { Dropdown } from "custom_dropdown_comp";
 
 export default function CreateEmployee() {
   //modal
@@ -72,27 +74,39 @@ export default function CreateEmployee() {
             <legend>Create Employee</legend>
 
             <div className="label-input">
-              <label className="first-name">First Name</label>
+              <label className="first-name" for="first-name">
+                First Name
+              </label>
               <input
                 type="text"
-                id="last-name"
+                id="first-name"
                 name="firstName"
                 required="required"
+                aria-labelledby="first-name"
+                aria-describedby="first-name"
+                aria-required="true"
               />
             </div>
 
             <div className="label-input">
-              <label className="last-name">Last Name</label>
+              <label className="last-name" for="last-name">
+                Last Name
+              </label>
               <input
                 type="text"
                 id="last-name"
                 name="lastName"
                 required="required"
+                aria-labelledby="last-name"
+                aria-describedby="last-name"
+                aria-required="true"
               />
             </div>
 
             <div className="label-input">
-              <label className="date-of-birth">Date of Birth</label>
+              <label className="date-of-birth" for="date-of-birth">
+                Date of Birth
+              </label>
 
               <DatePicker
                 id="date-of-birth"
@@ -105,7 +119,9 @@ export default function CreateEmployee() {
             </div>
 
             <div className="label-input">
-              <label className="start-date">Start Date</label>
+              <label className="start-date" for="start-date">
+                Start Date
+              </label>
 
               <DatePicker
                 id="start-date"
@@ -120,38 +136,72 @@ export default function CreateEmployee() {
             <fieldset className="address">
               <legend>Address</legend>
               <div className="label-input">
-                <label className="street">Street</label>
+                <label className="street" for="street">
+                  Street
+                </label>
                 <input
                   id="street"
                   type="text"
                   name="street"
                   required="required"
+                  aria-labelledby="street"
+                  aria-describedby="street"
+                  aria-required="true"
                 />
               </div>
 
               <div className="label-input">
-                <label className="city">City</label>
-                <input id="city" type="text" name="city" required="required" />
+                <label className="city" for="city">
+                  City
+                </label>
+                <input
+                  id="city"
+                  type="text"
+                  name="city"
+                  required="required"
+                  aria-labelledby="city"
+                  aria-describedby="city"
+                  aria-required="true"
+                />
               </div>
 
               <div className="label-input">
-                <label className="state">State</label>
-                <Dropdown name="state" optionsList={Datas.States} />
+                <label className="state" for="state">
+                  State
+                </label>
+
+                <Dropdown
+                  textLabel="states"
+                  name="states"
+                  data={Datas.States}
+                />
               </div>
               <div className="label-input">
-                <label className="zip-code">Zip Code</label>
+                <label className="zip-code" for="zip-code">
+                  Zip Code
+                </label>
                 <input
                   id="zip-code"
                   type="number"
                   name="zipCode"
                   required="required"
                   min={0}
+                  aria-labelledby="zip-code"
+                  aria-describedby="zip-code"
+                  aria-required="true"
                 />
               </div>
             </fieldset>
             <div className="label-input">
-              <label className="department">Department</label>
-              <Dropdown name="department" optionsList={Datas.Departments} />
+              <label className="department" for="departement">
+                Department
+              </label>
+
+              <Dropdown
+                textLabel="Department"
+                name="department"
+                data={Datas.Departments}
+              />
             </div>
             <button className="button">Save</button>
           </fieldset>

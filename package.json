@@ -17,6 +17,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "custom_dropdown_comp": "^0.1.4",
     "install": "^0.13.0",
     "modal-sp": "^0.1.8",
     "npm": "^10.2.3",
