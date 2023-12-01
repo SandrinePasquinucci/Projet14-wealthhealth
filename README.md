@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# Plugin Modal with Create React App and npm
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![GitHub Project](https://badgen.net/github/SandrinePasquinucci/Projet14-wealthhealth)](https://github.com/SandrinePasquinucci/Projet14-wealthhealth)
 
-## Available Scripts
+[![GitHub Last Commit](https://badgen.net/github/last-commit/SandrinePasquinucci/Projet14-modal)](https://github.com/SandrinePasquinucci/Projet14-modal/commits/master)
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+modal-sp est un composant qui permet d'afficher une modal de validation en fonction de critères définis dans le projet initial.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Sommaire
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [WeatherHealth](#wealthhealth)
+  - [Description](#description)
+  - [Sommaire](#sommaire)
+  - [Prerequis](#prerequis)
+  - [Installation](#installation)
+  - [Page](#page)
+  - [Plugin](#plugin)
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Prerequis
 
-### `npm run build`
+Veuillez vous assurer d'avoir les versions suivantes :
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js (version 18) : commande "node --version"
+- REACT (version 18) REACT DOM (version 18)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation
 
-### `npm run eject`
+Récupérez le projet sur GitHub :
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+`git clone https://github.com/SandrinePasquinucci/Projet14-wealthhealth`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Tapez la commande suivante dans votre projet pour installer les dépendances :
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+NPM : `npm install`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Tapez la commande suivante dans votre projet pour lancer le projet :
 
-## Learn More
+NPM : `npm run start`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Pages
 
-### Code Splitting
+- create : Permet de créer un nouvel employé
+- view : Permet de visualiser la liste des employées déjà enregistrtés
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## Plungin
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Dropdown : permet d'afficher les menus déroulants pré remplis
+  NPM :`npm install custom_dropdown_comp`
 
-### Making a Progressive Web App
+- react-datepicker : permet d'afficher le calendrier de selection des dates
+  NPM :`npm install react-datepicker`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Primreact : permet d'afficher le tableau des employées
+  NPM :`npm install primreact`
 
-### Advanced Configuration
+- REDUX : système de gestion d'état
+  NPM :`npm install @reduxjs/toolkit` et
+  NPM :`npm install react-redux`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
