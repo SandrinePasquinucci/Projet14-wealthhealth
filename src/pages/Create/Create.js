@@ -74,7 +74,7 @@ export default function CreateEmployee() {
             <legend>Create Employee</legend>
 
             <div className="label-input">
-              <label className="first-name" for="first-name">
+              <label className="first-name" htmlFor="first-name">
                 First Name
               </label>
               <input
@@ -89,7 +89,7 @@ export default function CreateEmployee() {
             </div>
 
             <div className="label-input">
-              <label className="last-name" for="last-name">
+              <label className="last-name" htmlFor="last-name">
                 Last Name
               </label>
               <input
@@ -104,7 +104,7 @@ export default function CreateEmployee() {
             </div>
 
             <div className="label-input">
-              <label className="date-of-birth" for="date-of-birth">
+              <label className="date-of-birth" htmlFor="date-of-birth">
                 Date of Birth
               </label>
 
@@ -119,7 +119,7 @@ export default function CreateEmployee() {
             </div>
 
             <div className="label-input">
-              <label className="start-date" for="start-date">
+              <label className="start-date" htmlFor="start-date">
                 Start Date
               </label>
 
@@ -136,7 +136,7 @@ export default function CreateEmployee() {
             <fieldset className="address">
               <legend>Address</legend>
               <div className="label-input">
-                <label className="street" for="street">
+                <label className="street" htmlFor="street">
                   Street
                 </label>
                 <input
@@ -151,7 +151,7 @@ export default function CreateEmployee() {
               </div>
 
               <div className="label-input">
-                <label className="city" for="city">
+                <label className="city" htmlFor="city">
                   City
                 </label>
                 <input
@@ -166,7 +166,7 @@ export default function CreateEmployee() {
               </div>
 
               <div className="label-input">
-                <label className="state" for="state">
+                <label className="state" htmlFor="state">
                   State
                 </label>
 
@@ -177,7 +177,7 @@ export default function CreateEmployee() {
                 />
               </div>
               <div className="label-input">
-                <label className="zip-code" for="zip-code">
+                <label className="zip-code" htmlFor="zip-code">
                   Zip Code
                 </label>
                 <input
@@ -193,7 +193,7 @@ export default function CreateEmployee() {
               </div>
             </fieldset>
             <div className="label-input">
-              <label className="department" for="departement">
+              <label className="department" htmlFor="departement">
                 Department
               </label>
 
