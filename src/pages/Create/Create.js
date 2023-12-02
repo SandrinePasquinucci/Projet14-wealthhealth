@@ -51,7 +51,7 @@ export default function CreateEmployee() {
       startDate: elements.startDate.value,
       street: elements.street.value,
       city: elements.city.value,
-      state: elements.state.value,
+      state: elements.states.value,
       zipCode: elements.zipCode.value,
       department: elements.department.value,
     };
